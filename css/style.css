@@ -1,0 +1,27 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+main {
+    background-color: #b91450;
+    color: white;
+}
+
+.title,
+.container {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.title {
+    text-transform: uppercase;
+}
+
+.container {
+    background-color: white;
+    color: #b91450;
+}
