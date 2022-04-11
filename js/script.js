@@ -4,16 +4,15 @@ btnGenerates.addEventListener("click",
     function() {
         //Prelievo degli input dall'utente
         const userName = document.getElementById("name-client").value;
-        console.log(userName);
 
         const numKm = document.getElementById("km-ticket").value;
-        console.log(numKm);
+
+        const priceKm = 0.21;
+        let ticketPrice = priceKm * numKm;
 
         const ageUser = document.getElementById("age-client").value;
-        console.log(ageUser);
 
         const nameResponse = document.querySelector(".name-surname .bottom")
-        console.log(nameResponse);
         nameResponse.innerHTML = `${userName}`;
 
         let offerta;
@@ -47,40 +46,38 @@ btnGenerates.addEventListener("click",
         const idTicket = document.querySelector(".id .bottom")
         idTicket.innerHTML = `${codTicket}`;
 
+        let totalPrice
+        if (ageUser == 'minorenne') {
+            totalPrice = ticketPrice - (ticketPrice * 0.20);
 
+        } else if (ageUser == 'over65') {
+            totalPrice = ticketPrice - (ticketPrice * 0.40);
+        } else if (ageUser == 'maggiorenne') {
+            totalPrice = ticketPrice
+        }
+        const finalPrice = document.querySelector(".ticket-price .bottom")
+        finalPrice.innerHTML = ' € ' + (totalPrice.toFixed(2)).replace('.', ',');
 
-
+        const detailPassenger = document.querySelector(".detail-passenger");
+        detailPassenger.classList.remove("d-none");
     }
+);
+
+const clearBtn = document.getElementById("cancel");
+
+clearBtn.addEventListener("click",
+    function() {
+        const userName = document.getElementById("name-client");
+        userName.value = "";
+
+        const numKm = document.getElementById("km-ticket");
+        numKm.value = "";
+
+        const ageUser = document.getElementById("age-client");
+        ageUser.value = "";
+
+        const detailPassenger = document.querySelector(".detail-passenger");
+        detailPassenger.classList.add("d-none");
+    }
+
 )
-
-
-// const nameResponse = document.querySelector(".ticket-detail .bottom")
-// console.log(nameResponse);
-// nameResponse.innerHTML = `${userName}`
-// const numKm = parseInt(prompt('Quanti sono i km da percorrere?'));
-// console.log(numKm);
-// const clientAge = parseInt(prompt('Inserisci la tua età'));
-// console.log(clientAge);
-
-// il prezzo del biglietto è definito in base ai km (0.21 € al km)
-const priceKm = 0.21;
-const ticketPrice = priceKm * numKm;
-// va applicato uno sconto del 20% per i minorenni
-
-let totalPrice
-if (clientAge < 18) {
-    totalPrice = ticketPrice - (ticketPrice * 0.20);
-
-}
-// va applicato uno sconto del 40% per gli over 65.
-else if (clientAge > 65) {
-    totalPrice = ticketPrice - (ticketPrice * 0.40);
-} else {
-    ticketPrice = totalPrice
-}
-
-console.log(totalPrice);
-
-
-document.getElementById("total-price").innerHTML = ' € ' + (totalPrice.toFixed(2)).replace('.', ',');
-// L'output va stampato nella pagina HTML.

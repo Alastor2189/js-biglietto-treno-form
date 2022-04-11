@@ -7,26 +7,114 @@
 main {
     background-color: #b91450;
     color: white;
+    height: 70vh;
+}
+
+label {
+    margin-bottom: 1em;
 }
 
 .title,
-.container {
-    width: 70%;
+.container,
+.detail-passenger {
+    width: 75%;
     margin: 0 auto;
     display: flex;
-    justify-content: center;
 }
 
 .title {
     text-transform: uppercase;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
 }
 
 .container {
     background-color: white;
     color: #b91450;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container-user {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.name,
+.km,
+.age {
+    display: flex;
+    flex-direction: column;
+}
+
+.name,
+.km,
+.age,
+.buttons {
+    padding: 1em 0;
+}
+
+button {
+    margin: 0 12px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 .detail-passenger {
     background-color: white;
     color: black;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1em;
+}
+
+.ticket-detail {
+    width: 95%;
+    margin: 0 auto;
+    text-transform: uppercase;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.row div {
+    padding: 15px;
+    height: 120px;
+}
+
+.row div:not(:first-child) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.name-surname {
+    background-color: grey;
+}
+
+.name-surname h3 {
+    text-transform: uppercase;
+}
+
+.name-surname p {
+    font-weight: bold;
+}
+
+.offering p,
+.id p,
+.carriage p,
+.ticket-price p {}
+
+.d-none {
+    display: none;
 }
